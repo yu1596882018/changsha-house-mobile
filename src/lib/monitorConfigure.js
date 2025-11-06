@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 监控配置
  * @description 配置错误监控和性能监控
  */
@@ -20,7 +20,7 @@ const monitorConfig = {
 
 // 性能监控配置
 const performanceConfig = {
-  pageId: 'changshaHouseMoblie', // 页面唯一标识
+  pageId: 'changsha-house-mobile', // 页面唯一标识
   url: `${requestBaseUrl}/reportMonitor`, // 信息采集上报地址
 }
 

@@ -6,7 +6,7 @@
 [![Vant](https://img.shields.io/badge/Vant-2.12.6-blue.svg)](https://youzan.github.io/vant/)
 [![Axios](https://img.shields.io/badge/Axios-0.21.1-orange.svg)](https://axios-http.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yu1596882018/changshaHouseMoblie/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yu1596882018/changsha-house-mobile/pulls)
 
 </div>
 
@@ -17,7 +17,7 @@
 基于 Vue 2.6 + Vant UI 构建的移动端应用，提供楼盘信息查询、数据同步等功能  
 接入微信公众号，持续稳定运行近一年，服务数千名真实用户
 
-[后端仓库](https://github.com/yu1596882018/changsha-house-backend.git) | [问题反馈](https://github.com/yu1596882018/changshaHouseMoblie/issues)
+[后端仓库](https://github.com/yu1596882018/changsha-house-backend.git) | [问题反馈](https://github.com/yu1596882018/changsha-house-mobile/issues)
 
 </div>
 
@@ -185,7 +185,7 @@ window.console.error = (...args) => {
 ```javascript
 // 页面加载性能
 monitor.monitorPerformance({
-  pageId: 'changshaHouseMoblie',
+  pageId: 'changsha-house-mobile',
   metrics: ['FCP', 'LCP', 'FID', 'CLS'],
 })
 
@@ -315,10 +315,10 @@ src/
 
 ```bash
 # 克隆项目
-git clone https://github.com/yu1596882018/changshaHouseMoblie.git
+git clone https://github.com/yu1596882018/changsha-house-mobile.git
 
 # 进入项目目录
-cd changshaHouseMoblie
+cd changsha-house-mobile
 
 # 安装依赖（推荐使用yarn）
 yarn install
@@ -359,7 +359,7 @@ npm run prettier
 ## 📁 项目结构
 
 ```
-changshaHouseMoblie/
+changsha-house-mobile/
 ├── public/                    # 静态资源（不经过webpack处理）
 │   ├── favicon.ico           # 网站图标
 │   └── index.html            # HTML模板
@@ -418,7 +418,7 @@ changshaHouseMoblie/
 server {
     listen 80;
     server_name your-domain.com;
-    root /var/www/changshaHouseMoblie/dist;
+    root /var/www/changsha-house-mobile/dist;
     index index.html;
 
     # Gzip压缩
@@ -517,7 +517,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ## 📚 相关链接
 
-- **前端项目**: [changshaHouseMoblie](https://github.com/yu1596882018/changshaHouseMoblie)
+- **前端项目**: [changsha-house-mobile](https://github.com/yu1596882018/changsha-house-mobile)
 - **后端项目**: [changsha-house-backend](https://github.com/yu1596882018/changsha-house-backend.git)
 - **监控 SDK**: [@yu1596882018/web-sdk](https://www.npmjs.com/package/@yu1596882018/web-sdk)
 
