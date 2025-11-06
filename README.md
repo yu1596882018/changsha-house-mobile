@@ -17,7 +17,7 @@
 基于 Vue 2.6 + Vant UI 构建的移动端应用，提供楼盘信息查询、数据同步等功能  
 接入微信公众号，持续稳定运行近一年，服务数千名真实用户
 
-[在线演示](#) | [后端仓库](https://github.com/yu1596882018/changsha-house-backend.git) | [问题反馈](https://github.com/yu1596882018/changshaHouseMoblie/issues)
+[后端仓库](https://github.com/yu1596882018/changsha-house-backend.git) | [问题反馈](https://github.com/yu1596882018/changshaHouseMoblie/issues)
 
 </div>
 
