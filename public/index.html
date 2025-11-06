@@ -3,20 +3,62 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- 移动端viewport设置 -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"/>
+
+    <!-- iOS相关设置 -->
     <meta name='apple-touch-fullscreen' content='yes'>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <meta name="ML-Config" content="fullscreen=yes,preventMove=no">
+    <meta name="apple-mobile-web-app-title" content="长楼查">
+
+    <!-- 禁止自动识别 -->
     <meta name="format-detection" content="telephone=no,email=no,address=no"/>
+
+    <!-- SEO优化 -->
+    <meta name="description" content="长沙楼市查询平台 - 提供楼盘信息查询、房源状态查询等服务，快速便捷的移动端房产查询工具">
+    <meta name="keywords" content="长沙楼盘,房源查询,楼市信息,房产查询,移动端">
+    <meta name="author" content="yu1596882018">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="长楼查 - 长沙楼市查询平台">
+    <meta property="og:description" content="快速便捷的长沙楼盘查询工具">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="长楼查 - 长沙楼市查询平台">
+    <meta property="twitter:description" content="快速便捷的长沙楼盘查询工具">
+
+    <!-- 主题颜色 -->
+    <meta name="theme-color" content="#1989fa">
+
+    <!-- Favicon -->
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>长楼查</title>
+    <link rel="apple-touch-icon" href="<%= BASE_URL %>favicon.ico">
+
+    <!-- DNS预解析（如有CDN或外部资源） -->
+    <!-- <link rel="dns-prefetch" href="//cdn.example.com"> -->
+
+    <!-- 预连接（如有频繁请求的域名） -->
+    <!-- <link rel="preconnect" href="https://api.example.com"> -->
+
+    <title>长楼查 - 长沙楼市查询平台</title>
   </head>
   <body>
+    <!-- 不支持JavaScript的提示 -->
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h2>抱歉，本应用需要JavaScript支持</h2>
+        <p>请启用浏览器的JavaScript功能后再访问</p>
+        <p>Sorry, this app requires JavaScript to be enabled. Please enable JavaScript in your browser.</p>
+      </div>
     </noscript>
+
+    <!-- Vue应用挂载点 -->
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+
+    <!-- 构建后的文件将自动注入 -->
   </body>
 </html>

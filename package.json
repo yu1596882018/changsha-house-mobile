@@ -26,9 +26,18 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "dev": "npm run serve",
     "build": "vue-cli-service build",
+    "build:prod": "vue-cli-service build --mode production",
+    "build:dev": "vue-cli-service build --mode development",
+    "preview": "npm run build && npx http-server dist -p 8080",
     "lint": "vue-cli-service lint",
-    "prettier": "prettier --write **/*.{js,vue}"
+    "lint:fix": "vue-cli-service lint --fix",
+    "prettier": "prettier --write **/*.{js,vue,json,md}",
+    "prettier:check": "prettier --check **/*.{js,vue,json,md}",
+    "clean": "rimraf dist node_modules/.cache",
+    "inspect": "vue-cli-service inspect > webpack.config.js",
+    "report": "vue-cli-service build --report"
   },
   "dependencies": {
     "@yu1596882018/web-sdk": "^1.2.1",
@@ -95,11 +104,6 @@
       "prettier"
     ]
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
   "gitHooks": {
     "pre-commit": "lint-staged"
   },

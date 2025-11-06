@@ -1,0 +1,16 @@
+# Browserslist配置
+# 定义支持的浏览器范围
+# 用于autoprefixer、babel等工具
+
+# 生产环境
+> 1%
+last 2 versions
+not dead
+
+# 不支持IE11
+not ie 11
+
+# 移动端浏览器
+iOS >= 10
+Android >= 5
+
