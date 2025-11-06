@@ -20,4 +20,5 @@ const prodHost = getProdHost()
 const prodBaseUrl = `${location.protocol}//${prodHost}`
 
 // 导出请求基础URL
-export const requestBaseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:8899' : prodBaseUrl
+export const requestBaseUrl =
+  process.env.NODE_ENV === 'development' ? 'http://localhost:8899' : prodBaseUrl

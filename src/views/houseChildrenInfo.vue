@@ -10,9 +10,21 @@
 
     <!-- 下拉刷新和上拉加载 -->
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-      <van-list class="case-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+      <van-list
+        class="case-list"
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
         <van-collapse v-model="activeNames">
-          <van-collapse-item :name="item.id" v-for="item in filterList" :title="item.a" :key="item.id" :value="item.i">
+          <van-collapse-item
+            :name="item.id"
+            v-for="item in filterList"
+            :title="item.a"
+            :key="item.id"
+            :value="item.i"
+          >
             <van-cell v-for="key in Object.keys(colAttrs)" :key="key" :title="colAttrs[key]">
               {{ item[key] }}
             </van-cell>
@@ -74,9 +86,9 @@ export default {
      */
     filterList() {
       if (this.value1 === 1) {
-        return this.list.filter((item) => item.i === '可售')
+        return this.list.filter(item => item.i === '可售')
       } else if (this.value1 === 2) {
-        return this.list.filter((item) => item.i === '已售')
+        return this.list.filter(item => item.i === '已售')
       }
       return this.list
     },
@@ -101,7 +113,7 @@ export default {
           offset: this.offset,
           limit: this.limit,
         })
-        .then((res) => {
+        .then(res => {
           console.log('房源信息详情数据:', res.data)
 
           if (this.refreshing) {
@@ -123,7 +135,7 @@ export default {
             this.finished = true
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('加载房源信息详情失败:', error)
           this.loading = false
           this.$toast.fail('加载失败，请重试')

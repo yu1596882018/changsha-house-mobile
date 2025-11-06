@@ -97,7 +97,7 @@ export function throttle(func, limit = 300) {
 export function deepClone(obj) {
   if (obj === null || typeof obj !== 'object') return obj
   if (obj instanceof Date) return new Date(obj.getTime())
-  if (obj instanceof Array) return obj.map((item) => deepClone(item))
+  if (obj instanceof Array) return obj.map(item => deepClone(item))
   if (typeof obj === 'object') {
     const clonedObj = {}
     for (const key in obj) {
@@ -181,7 +181,7 @@ export function getUrlParams(url = window.location.href) {
  */
 export function setUrlParams(params, url = window.location.href) {
   const urlObj = new URL(url)
-  Object.keys(params).forEach((key) => {
+  Object.keys(params).forEach(key => {
     urlObj.searchParams.set(key, params[key])
   })
   return urlObj.toString()
@@ -263,7 +263,9 @@ export const validate = {
 export const device = {
   // 检测是否为移动设备
   isMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
   },
 
   // 检测是否为iOS

@@ -27,18 +27,18 @@
 
 ### 项目背景
 
-长沙市住建局官网查询界面简陋，移动端体验较差，查询效率低下。为了提升用户体验，本项目从0到1独立开发了一个移动端楼盘查询平台，解决了以下痛点：
+长沙市住建局官网查询界面简陋，移动端体验较差，查询效率低下。为了提升用户体验，本项目从 0 到 1 独立开发了一个移动端楼盘查询平台，解决了以下痛点：
 
 - ❌ **官网界面陈旧**：不符合现代移动端设计规范
 - ❌ **查询流程繁琐**：需要多次跳转才能查看详细信息
 - ❌ **加载速度慢**：未做性能优化，响应时间长
-- ❌ **用户体验差**：缺少loading状态、错误提示等交互细节
+- ❌ **用户体验差**：缺少 loading 状态、错误提示等交互细节
 
 ### 项目价值
 
 ✅ **真实生产项目**：已接入微信公众号，持续运行近一年  
 ✅ **用户量验证**：日活用户 1000+，累计服务数千名用户  
-✅ **技术深度**：自研监控SDK、完善的架构设计、性能优化实践  
+✅ **技术深度**：自研监控 SDK、完善的架构设计、性能优化实践  
 ✅ **工程化能力**：代码规范、文档完善、部署自动化
 
 ---
@@ -46,28 +46,32 @@
 ## ✨ 核心功能
 
 ### 1. 楼盘信息查询 🏘️
+
 - 支持按预售许可证编码快速查询
 - 实时展示楼盘销售状态
 - 提供楼栋、单元、房号三级详细信息
 - 支持按销售状态（可售/已售/已签约）筛选
 
 ### 2. 数据同步 🔄
+
 - 与住建局官网数据实时同步
 - 增量更新机制，确保数据时效性
 - 失败重试和异常提示
 
 ### 3. 用户体验优化 📱
+
 - **下拉刷新** + **上拉加载**：流畅的列表交互体验
 - **骨架屏加载**：减少等待焦虑感
 - **智能缓存**：减少重复请求，提升响应速度
-- **Toast提示**：友好的操作反馈和错误提示
+- **Toast 提示**：友好的操作反馈和错误提示
 - **路由动画**：页面切换流畅自然
 
 ### 4. 全链路监控 📊
-- **错误监控**：Vue错误、Console错误全覆盖
+
+- **错误监控**：Vue 错误、Console 错误全覆盖
 - **性能监控**：页面加载时间、接口响应时间追踪
 - **用户行为监控**：页面访问、操作行为埋点
-- **日志上报**：与Elasticsearch无缝集成
+- **日志上报**：与 Elasticsearch 无缝集成
 
 ---
 
@@ -121,43 +125,49 @@
 ### 技术栈
 
 #### 核心框架
-- **Vue.js 2.6.11** - 渐进式JavaScript框架
+
+- **Vue.js 2.6.11** - 渐进式 JavaScript 框架
 - **Vant 2.12.6** - 轻量、可靠的移动端组件库
 - **Vue Router 3.2.0** - 官方路由管理器
 - **Vuex 3.4.0** - 状态管理模式
 
 #### 网络请求
-- **Axios 0.21.1** - 基于Promise的HTTP客户端
-- **自研Request封装** - 统一请求拦截、错误处理、Loading管理
+
+- **Axios 0.21.1** - 基于 Promise 的 HTTP 客户端
+- **自研 Request 封装** - 统一请求拦截、错误处理、Loading 管理
 
 #### 工程化
+
 - **Vue CLI 4.5** - 标准化构建工具
-- **Babel** - JavaScript编译器
+- **Babel** - JavaScript 编译器
 - **ESLint + Prettier** - 代码规范和格式化
-- **Sass/SCSS** - CSS预处理器
+- **Sass/SCSS** - CSS 预处理器
 - **PostCSS + pxtorem** - 移动端适配方案
 
-#### 监控与SDK
-- **@yu1596882018/web-sdk** - 自研前端监控SDK ⭐⭐⭐⭐⭐
+#### 监控与 SDK
+
+- **@yu1596882018/web-sdk** - 自研前端监控 SDK ⭐⭐⭐⭐⭐
   - 错误监控（Vue Error、Console Error）
   - 性能监控（页面加载、接口响应）
   - 用户行为监控（页面访问、操作埋点）
-  - 日志上报（Elasticsearch集成）
+  - 日志上报（Elasticsearch 集成）
 
 #### 部署与运维
-- **Nginx** - 反向代理 + 静态资源服务 + HTTP缓存
-- **阿里云ECS** - 云服务器
+
+- **Nginx** - 反向代理 + 静态资源服务 + HTTP 缓存
+- **阿里云 ECS** - 云服务器
 - **Docker** - 容器化部署（可选）
 
 ---
 
 ## 🎯 项目亮点
 
-### 1. 自研监控SDK ⭐⭐⭐⭐⭐
+### 1. 自研监控 SDK ⭐⭐⭐⭐⭐
 
 独立开发 `@yu1596882018/web-sdk` 监控组件，实现前端全链路监控：
 
 **错误监控**
+
 ```javascript
 // 自动捕获Vue错误
 Vue.config.errorHandler = (err, vm, info) => {
@@ -171,53 +181,59 @@ window.console.error = (...args) => {
 ```
 
 **性能监控**
+
 ```javascript
 // 页面加载性能
 monitor.monitorPerformance({
   pageId: 'changshaHouseMoblie',
-  metrics: ['FCP', 'LCP', 'FID', 'CLS']
+  metrics: ['FCP', 'LCP', 'FID', 'CLS'],
 })
 
 // 接口响应时间
 monitor.reportAPI({
   url: '/api/houseInfoList',
   duration: 200,
-  status: 200
+  status: 200,
 })
 ```
 
 **业务监控**
+
 ```javascript
 // 用户行为埋点
 monitor.trackEvent('house_search', {
   keyword: '预售许可证编码',
-  timestamp: Date.now()
+  timestamp: Date.now(),
 })
 ```
 
 ### 2. 移动端最佳实践 ⭐⭐⭐⭐⭐
 
 **响应式适配方案**
+
 - 基于 750px 设计稿
 - 使用 `postcss-pxtorem` 自动转换单位
 - 动态计算根元素字体大小
 - 适配各种移动设备（iPhone、Android）
 
 **性能优化**
+
 - 路由懒加载：首屏加载时间减少 60%
 - 图片懒加载：减少不必要的资源请求
-- Gzip压缩：资源体积减少 70%
-- Nginx缓存：静态资源命中率 95%+
+- Gzip 压缩：资源体积减少 70%
+- Nginx 缓存：静态资源命中率 95%+
 
 **用户体验优化**
+
 - 骨架屏：减少白屏时间
 - 防抖节流：优化高频操作
-- 智能重试：失败自动重试3次
-- 友好提示：统一的Toast和Dialog
+- 智能重试：失败自动重试 3 次
+- 友好提示：统一的 Toast 和 Dialog
 
 ### 3. 工程化实践 ⭐⭐⭐⭐⭐
 
 **代码规范**
+
 ```javascript
 // ESLint + Prettier 自动格式化
 // Git Hooks: 提交前自动检查
@@ -235,6 +251,7 @@ monitor.trackEvent('house_search', {
 ```
 
 **分层架构**
+
 ```
 src/
 ├── views/         # 页面层（UI展示）
@@ -246,9 +263,10 @@ src/
 ```
 
 **统一请求管理**
-- 请求拦截：自动注入Token
+
+- 请求拦截：自动注入 Token
 - 响应拦截：统一错误处理
-- Loading管理：智能显示/隐藏
+- Loading 管理：智能显示/隐藏
 - 错误重试：网络异常自动重试
 
 ### 4. 微信公众号集成 ⭐⭐⭐⭐⭐
@@ -264,25 +282,25 @@ src/
 
 ### 优化成果
 
-| 指标 | 优化前 | 优化后 | 提升 |
-|------|--------|--------|------|
-| **首屏加载时间** | 3.5s | 1.2s | **⬆️ 65%** |
-| **页面切换速度** | 800ms | 200ms | **⬆️ 75%** |
-| **接口响应时间** | 3s | 200ms | **⬆️ 93%** |
-| **资源体积** | 2.5MB | 750KB | **⬇️ 70%** |
-| **缓存命中率** | 0% | 95%+ | **⬆️ 95%** |
+| 指标             | 优化前 | 优化后 | 提升       |
+| ---------------- | ------ | ------ | ---------- |
+| **首屏加载时间** | 3.5s   | 1.2s   | **⬆️ 65%** |
+| **页面切换速度** | 800ms  | 200ms  | **⬆️ 75%** |
+| **接口响应时间** | 3s     | 200ms  | **⬆️ 93%** |
+| **资源体积**     | 2.5MB  | 750KB  | **⬇️ 70%** |
+| **缓存命中率**   | 0%     | 95%+   | **⬆️ 95%** |
 
 ### 运营数据
 
-| 指标 | 数据 |
-|------|------|
-| **运行时长** | 近 1 年 |
-| **日活用户** | 1000+ |
-| **累计用户** | 5000+ |
-| **日均PV** | 5000+ |
-| **系统可用性** | 99.9%+ |
-| **平均响应时间** | <300ms |
-| **错误率** | <0.5% |
+| 指标             | 数据    |
+| ---------------- | ------- |
+| **运行时长**     | 近 1 年 |
+| **日活用户**     | 1000+   |
+| **累计用户**     | 5000+   |
+| **日均 PV**      | 5000+   |
+| **系统可用性**   | 99.9%+  |
+| **平均响应时间** | <300ms  |
+| **错误率**       | <0.5%   |
 
 ---
 
@@ -429,7 +447,7 @@ axios.interceptors.response.use(
 )
 ```
 
-### 2. 监控SDK配置
+### 2. 监控 SDK 配置
 
 ```javascript
 // src/lib/monitorConfigure.js
@@ -440,15 +458,15 @@ const monitor = new MonitorJS()
 // 错误监控配置
 monitor.init({
   url: `${requestBaseUrl}/reportMonitor`,
-  consoleError: true,  // 监控console.error
-  vueError: true,      // 监控Vue错误
-  vue: Vue
+  consoleError: true, // 监控console.error
+  vueError: true, // 监控Vue错误
+  vue: Vue,
 })
 
 // 性能监控配置
 monitor.monitorPerformance({
   pageId: 'changshaHouseMoblie',
-  url: `${requestBaseUrl}/reportMonitor`
+  url: `${requestBaseUrl}/reportMonitor`,
 })
 ```
 
@@ -466,7 +484,7 @@ class Services {
     return this.request({
       url: '/houseInfoList',
       method: 'get',
-      params
+      params,
     })
   }
 
@@ -475,7 +493,7 @@ class Services {
     return this.request({
       url: `/houseChildren/${tableId}`,
       method: 'get',
-      params
+      params,
     })
   }
 }
@@ -483,7 +501,7 @@ class Services {
 export default {
   install(Vue) {
     Vue.prototype.$services = new Services(Vue.prototype.$request)
-  }
+  },
 }
 ```
 
@@ -494,11 +512,11 @@ export default {
 module.exports = {
   plugins: {
     'postcss-pxtorem': {
-      rootValue: 37.5,        // 基于750px设计稿
-      propList: ['*'],        // 所有属性都转换
-      selectorBlackList: []   // 排除选择器
-    }
-  }
+      rootValue: 37.5, // 基于750px设计稿
+      propList: ['*'], // 所有属性都转换
+      selectorBlackList: [], // 排除选择器
+    },
+  },
 }
 ```
 
@@ -511,12 +529,13 @@ module.exports = {
 **挑战**：适配不同尺寸的移动设备
 
 **解决方案**：
-- 使用 `postcss-pxtorem` 自动转换px为rem
-- 动态设置根元素字体大小
-- 基于750px设计稿开发
-- 使用Vant组件保证兼容性
 
-**效果**：完美适配iPhone、Android各种机型
+- 使用 `postcss-pxtorem` 自动转换 px 为 rem
+- 动态设置根元素字体大小
+- 基于 750px 设计稿开发
+- 使用 Vant 组件保证兼容性
+
+**效果**：完美适配 iPhone、Android 各种机型
 
 ---
 
@@ -525,13 +544,14 @@ module.exports = {
 **挑战**：首屏加载慢、页面切换卡顿
 
 **解决方案**：
-- **路由懒加载**：按需加载页面组件
-- **组件按需引入**：Vant组件按需导入
-- **Nginx缓存**：静态资源强缓存
-- **Gzip压缩**：资源体积减少70%
-- **图片优化**：懒加载 + WebP格式
 
-**效果**：首屏时间从3.5s降至1.2s，提升65%
+- **路由懒加载**：按需加载页面组件
+- **组件按需引入**：Vant 组件按需导入
+- **Nginx 缓存**：静态资源强缓存
+- **Gzip 压缩**：资源体积减少 70%
+- **图片优化**：懒加载 + WebP 格式
+
+**效果**：首屏时间从 3.5s 降至 1.2s，提升 65%
 
 ---
 
@@ -540,12 +560,13 @@ module.exports = {
 **挑战**：网络异常、接口报错时用户体验差
 
 **解决方案**：
-- **统一拦截器**：axios拦截器统一处理
-- **友好提示**：Toast提示替代alert
-- **智能重试**：失败自动重试3次
+
+- **统一拦截器**：axios 拦截器统一处理
+- **友好提示**：Toast 提示替代 alert
+- **智能重试**：失败自动重试 3 次
 - **降级方案**：本地缓存兜底
 
-**效果**：错误率从5%降至0.5%
+**效果**：错误率从 5%降至 0.5%
 
 ---
 
@@ -554,9 +575,10 @@ module.exports = {
 **挑战**：线上问题难以发现和定位
 
 **解决方案**：
-- **自研监控SDK**：错误、性能、行为全覆盖
-- **Elasticsearch存储**：海量日志存储和检索
-- **Kibana可视化**：实时监控大盘
+
+- **自研监控 SDK**：错误、性能、行为全覆盖
+- **Elasticsearch 存储**：海量日志存储和检索
+- **Kibana 可视化**：实时监控大盘
 - **告警机制**：异常自动通知
 
 **效果**：问题定位时间从小时级降至分钟级
@@ -566,25 +588,30 @@ module.exports = {
 ## 📱 页面展示
 
 ### 首页
+
 - 功能导航入口
 - 快速搜索入口
 
 ### 楼盘列表页
+
 - 下拉刷新 + 上拉加载
 - 楼盘信息卡片展示
 - 支持跳转详情
 
 ### 楼栋详情页
+
 - 楼栋信息展示
 - 房源列表
 - 销售状态统计
 
 ### 房源信息详情页
+
 - 房号详细信息
 - 销售状态筛选
 - 面积、价格等关键信息
 
 ### 房源搜索页
+
 - 预售许可证编码搜索
 - 数据同步功能
 - 搜索历史记录
@@ -593,7 +620,7 @@ module.exports = {
 
 ## 🚢 部署指南
 
-### Nginx配置
+### Nginx 配置
 
 ```nginx
 server {
@@ -625,7 +652,7 @@ server {
 }
 ```
 
-### Docker部署（可选）
+### Docker 部署（可选）
 
 ```dockerfile
 # Dockerfile
@@ -654,21 +681,21 @@ CMD ["nginx", "-g", "daemon off;"]
 使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
 
 - `feat`: 新功能
-- `fix`: 修复bug
+- `fix`: 修复 bug
 - `docs`: 文档更新
 - `style`: 代码格式调整（不影响功能）
-- `refactor`: 重构（不新增功能，不修复bug）
+- `refactor`: 重构（不新增功能，不修复 bug）
 - `perf`: 性能优化
 - `test`: 测试相关
 - `chore`: 构建/工具链相关
 
 ### 开发流程
 
-1. Fork本仓库
+1. Fork 本仓库
 2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
 3. 提交更改 (`git commit -m 'feat: Add some AmazingFeature'`)
 4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 提交Pull Request
+5. 提交 Pull Request
 
 ---
 
@@ -700,7 +727,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 - **前端项目**: [changshaHouseMoblie](https://github.com/yu1596882018/changshaHouseMoblie)
 - **后端项目**: [changsha-house-backend](https://github.com/yu1596882018/changsha-house-backend.git)
-- **监控SDK**: [@yu1596882018/web-sdk](https://www.npmjs.com/package/@yu1596882018/web-sdk)
+- **监控 SDK**: [@yu1596882018/web-sdk](https://www.npmjs.com/package/@yu1596882018/web-sdk)
 
 ---
 
@@ -708,9 +735,9 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ### 前端工程化
 
-✅ Vue全家桶（Vue + Vuex + Router）深度实践  
+✅ Vue 全家桶（Vue + Vuex + Router）深度实践  
 ✅ 移动端组件库选型和使用  
-✅ Webpack构建优化和配置  
+✅ Webpack 构建优化和配置  
 ✅ ESLint + Prettier 代码规范  
 ✅ Git Hooks 自动化检查
 
@@ -718,30 +745,30 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ✅ 路由懒加载减少首屏时间  
 ✅ 组件按需引入减小打包体积  
-✅ Nginx缓存策略提升加载速度  
-✅ Gzip压缩优化传输效率  
+✅ Nginx 缓存策略提升加载速度  
+✅ Gzip 压缩优化传输效率  
 ✅ 图片懒加载减少资源请求
 
 ### 用户体验
 
 ✅ 移动端适配方案（pxtorem）  
-✅ 骨架屏和Loading优化  
-✅ Toast和Dialog交互优化  
+✅ 骨架屏和 Loading 优化  
+✅ Toast 和 Dialog 交互优化  
 ✅ 防抖节流优化高频操作  
 ✅ 错误处理和降级方案
 
 ### 监控体系
 
-✅ 自研监控SDK开发  
+✅ 自研监控 SDK 开发  
 ✅ 错误监控全覆盖  
 ✅ 性能监控指标采集  
 ✅ 用户行为埋点  
-✅ Elasticsearch日志存储
+✅ Elasticsearch 日志存储
 
 ### 工程实践
 
-✅ 分层架构设计（MVC模式）  
-✅ 服务层封装和API管理  
+✅ 分层架构设计（MVC 模式）  
+✅ 服务层封装和 API 管理  
 ✅ 统一请求拦截和错误处理  
 ✅ 完整的文档体系  
 ✅ 生产环境部署和运维
@@ -750,19 +777,19 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ## 🌟 项目总结
 
-本项目是一个**真实的生产级移动端项目**，从0到1独立完成前端开发，涵盖了需求分析、UI设计、代码实现、性能优化、部署上线的完整流程。
+本项目是一个**真实的生产级移动端项目**，从 0 到 1 独立完成前端开发，涵盖了需求分析、UI 设计、代码实现、性能优化、部署上线的完整流程。
 
 **核心成就**：
 
 🎯 解决了实际用户痛点，提升了查询效率  
 🎯 接入微信公众号，服务数千名真实用户  
-🎯 自研监控SDK，可复用的技术组件  
-🎯 首屏加载时间提升65%，性能优化显著  
-🎯 持续稳定运行近一年，系统可用性99.9%+
+🎯 自研监控 SDK，可复用的技术组件  
+🎯 首屏加载时间提升 65%，性能优化显著  
+🎯 持续稳定运行近一年，系统可用性 99.9%+
 
 **技术价值**：
 
-💡 自研监控SDK，可复用的前端监控方案  
+💡 自研监控 SDK，可复用的前端监控方案  
 💡 移动端最佳实践，完整的性能优化经验  
 💡 工程化体系，规范的代码和文档  
 💡 分层架构设计，可维护的代码结构  

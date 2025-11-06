@@ -8,7 +8,13 @@
 
     <!-- 下拉刷新和上拉加载 -->
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-      <van-list class="case-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+      <van-list
+        class="case-list"
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
         <van-collapse v-model="activeNames">
           <van-collapse-item
             :name="item.id"
@@ -23,7 +29,12 @@
                 <van-icon
                   size="2em"
                   name="eye-o"
-                  @click="toHouseChildrenInfo($route.query.id + '_' + item.i, $route.query.name + ' ' + item.b)"
+                  @click="
+                    toHouseChildrenInfo(
+                      $route.query.id + '_' + item.i,
+                      $route.query.name + ' ' + item.b
+                    )
+                  "
                 />
               </div>
             </template>
@@ -108,7 +119,7 @@ export default {
           offset: this.offset,
           limit: this.limit,
         })
-        .then((res) => {
+        .then(res => {
           console.log('楼栋详情数据:', res.data)
 
           if (this.refreshing) {
@@ -130,7 +141,7 @@ export default {
             this.finished = true
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('加载楼栋详情失败:', error)
           this.loading = false
           this.$toast.fail('加载失败，请重试')

@@ -28,7 +28,9 @@
 
     <!-- 搜索按钮 -->
     <div class="search-buttons">
-      <van-button round block type="info" @click="search2"> 同步"长沙市住房和城乡建设局"公示数据 </van-button>
+      <van-button round block type="info" @click="search2">
+        同步"长沙市住房和城乡建设局"公示数据
+      </van-button>
     </div>
   </div>
 </template>
@@ -93,7 +95,7 @@ export default {
     submitMethod1(values) {
       this.$services
         .verifyCode(values)
-        .then((res) => {
+        .then(res => {
           console.log('验证码验证结果:', res)
 
           if (res && res.status !== '1') {
@@ -105,7 +107,7 @@ export default {
           // 查询已有数据
           this.$services
             .getHouseInfoList({ v: res.id })
-            .then((res2) => {
+            .then(res2 => {
               console.log('查询结果:', res2)
 
               const tempDom = document.createElement('div')
@@ -121,12 +123,12 @@ export default {
                 Toast.fail('在已有数据中，没有该楼盘信息，试试爬取网络数据查询吧')
               }
             })
-            .catch((error) => {
+            .catch(error => {
               console.error('查询失败:', error)
               Toast.fail('查询失败，请重试')
             })
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('验证码验证失败:', error)
           Toast.fail('验证码验证失败')
           this.switchCodeImg()
@@ -140,7 +142,7 @@ export default {
     submitMethod2(values) {
       this.$services
         .verifyCode(values)
-        .then((res) => {
+        .then(res => {
           console.log('验证码验证结果:', res)
 
           if (res && res.status !== '1') {
@@ -158,7 +160,7 @@ export default {
           // 同步网络数据
           this.$services
             .collectHouseInfo(res.id)
-            .then((res2) => {
+            .then(res2 => {
               console.log('同步结果:', res2)
 
               const tempDom = document.createElement('div')
@@ -174,12 +176,12 @@ export default {
                 Toast.fail('查询失败，请稍后再试噢~')
               }
             })
-            .catch((error) => {
+            .catch(error => {
               console.error('同步失败:', error)
               Toast.fail('同步失败，请稍后再试')
             })
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('验证码验证失败:', error)
           Toast.fail('验证码验证失败')
           this.switchCodeImg()

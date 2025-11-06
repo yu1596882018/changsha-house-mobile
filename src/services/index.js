@@ -62,7 +62,7 @@ class Services {
       url: '/verifyCode',
       method: 'post',
       data,
-    }).then((res) => res.data)
+    }).then(res => res.data)
   }
 
   /**
@@ -75,7 +75,7 @@ class Services {
       url: '/collectHouseInfo',
       method: 'get',
       params: { id },
-    }).then((res) => res.data)
+    }).then(res => res.data)
   }
 }
 

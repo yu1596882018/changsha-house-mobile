@@ -8,7 +8,13 @@
 
     <!-- 下拉刷新和上拉加载 -->
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-      <van-list class="case-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+      <van-list
+        class="case-list"
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+      >
         <van-collapse v-model="activeNames">
           <van-collapse-item
             :name="item.id"
@@ -20,7 +26,12 @@
               <div class="col-title-block">
                 {{ item.w }}
                 <van-icon size="2em" name="eye-o" @click="toHouseChildren(item.v, item.w)" />
-                <van-icon class="replay-icon" size="2em" name="replay" @click="toReplayData(item.v)" />
+                <van-icon
+                  class="replay-icon"
+                  size="2em"
+                  name="replay"
+                  @click="toReplayData(item.v)"
+                />
               </div>
             </template>
 
@@ -116,7 +127,7 @@ export default {
           offset: 0,
           limit: 1,
         })
-        .then((res) => {
+        .then(res => {
           const code = res.data?.rows?.[0]?.a
           if (code) {
             this.$router.push({
@@ -127,7 +138,7 @@ export default {
             Toast.fail('数据有误，更新失败！')
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('获取数据失败:', error)
           Toast.fail('获取数据失败')
         })
@@ -142,7 +153,7 @@ export default {
           offset: this.offset,
           limit: this.limit,
         })
-        .then((res) => {
+        .then(res => {
           console.log('房源列表数据:', res.data)
 
           if (this.refreshing) {
@@ -164,7 +175,7 @@ export default {
             this.finished = true
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('加载房源列表失败:', error)
           this.loading = false
           Toast.fail('加载失败，请重试')

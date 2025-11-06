@@ -101,7 +101,7 @@ export default {
      * 处理响应错误
      * @param {object} response - 响应对象
      */
-    const handleResponseError = (response) => {
+    const handleResponseError = response => {
       const { data, status } = response
 
       // 字符串类型错误
@@ -112,13 +112,13 @@ export default {
 
       // 对象类型错误
       if (typeof data === 'object' && data !== null) {
-        Object.keys(data).forEach((key) => {
+        Object.keys(data).forEach(key => {
           const value = data[key]
 
           if (typeof value === 'string') {
             Vue.prototype.$toast.fail(`${key}: ${value}`)
           } else if (Array.isArray(value)) {
-            value.forEach((item) => {
+            value.forEach(item => {
               Vue.prototype.$toast.fail(`${key}: ${item}`)
             })
           }
@@ -128,7 +128,7 @@ export default {
 
     // 请求拦截器
     axios.interceptors.request.use(
-      (config) => {
+      config => {
         // 添加认证token
         const token = localStorage.getItem('token')
         if (token) {
@@ -136,21 +136,21 @@ export default {
         }
         return config
       },
-      (error) => {
+      error => {
         return Promise.reject(error)
-      },
+      }
     )
 
     // 响应拦截器
     axios.interceptors.response.use(
-      (response) => {
+      response => {
         return response
       },
-      (error) => {
+      error => {
         // 网络错误统一处理
         Vue.prototype.$toast.fail('网络繁忙，请稍后重试')
         return Promise.reject(error)
-      },
+      }
     )
   },
 }
