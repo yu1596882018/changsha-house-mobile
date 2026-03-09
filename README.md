@@ -146,7 +146,7 @@
 
 #### 监控与 SDK
 
-- **@yu1596882018/web-sdk** - 自研前端监控 SDK ⭐⭐⭐⭐⭐
+- **[@yu1596882018/web-sdk](https://github.com/yu1596882018/broad-sdk)** - 自研前端监控 SDK ⭐⭐⭐⭐⭐
   - 错误监控（Vue Error、Console Error）
   - 性能监控（页面加载、接口响应）
   - 用户行为监控（页面访问、操作埋点）
@@ -518,8 +518,8 @@ CMD ["nginx", "-g", "daemon off;"]
 ## 📚 相关链接
 
 - **前端项目**: [changsha-house-mobile](https://github.com/yu1596882018/changsha-house-mobile)
-- **后端项目**: [changsha-house-backend](https://github.com/yu1596882018/changsha-house-backend.git)
-- **监控 SDK**: [@yu1596882018/web-sdk](https://www.npmjs.com/package/@yu1596882018/web-sdk)
+- **后端项目**: [changsha-house-backend](https://github.com/yu1596882018/changsha-house-backend)
+- **监控 SDK**: [@yu1596882018/web-sdk](https://github.com/yu1596882018/broad-sdk)
 
 ---
 
